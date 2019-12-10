@@ -1,0 +1,90 @@
+{% extends 'views/member/h-i-f-component/h-i-f.html.twig' %}
+
+{% block main %}
+    <h2 class="text-danger mt-3 mb-3 ml-5"> Inschrijven op les</h2>
+
+    <div class="d-flex flex-wrap p-1" style="background: #ebebeb; font-size: 1.1rem">
+        <div class="p-2" style="background: orange; border-radius: 100px"><p class="m-0 pl-2 pr-1">Vandaag</p></div>
+        <div class="p-2">{{ "+1day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+2day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+3day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+4day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+5day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+6day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+7day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+8day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+9day"|date("D j M") }}</div>
+        <div class="p-2">{{ "+10day"|date("D j M") }}</div>
+    </div>
+    <br>
+    <div id="movies" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1">
+                <img class="img-fluid" src="{{ asset('img/stootzak-training.jpg') }}" alt="">
+            </div>
+            <div class="col-sm-5">
+                <div class="row align-items-center" style="height: 50%">
+                    <div class="col">
+                        <h2>Stootzak training</h2>
+                    </div>
+                </div>
+                <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">
+                    <div class="col-sm-2">
+                        12:00
+                    </div>
+                    <div class="col-sm-2">
+                        14:00
+                    </div>
+                    <div class="col-sm-2">
+                        21:00
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+                <img class="img-fluid" src="{{ asset('img/kickboxen-training.jpg') }}" alt="">
+            </div>
+            <div class="col-sm-5">
+                <div class="row align-items-center" style="height: 50%">
+                    <div class="col">
+                        <h2>KickBoksen</h2>
+                    </div>
+                </div>
+                <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">
+                    <div class="col-sm-2">
+                        12:00
+                    </div>
+                    <div class="col-sm-2">
+                        15:00
+                    </div>
+                    <div class="col-sm-2">
+                        21:00
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-1">
+                <img class="img-fluid" src="{{ asset('img/mma-training.jpg') }}" alt="">
+            </div>
+            <div class="col-sm-5">
+                <div class="row align-items-center" style="height: 50%">
+                    <div class="col">
+                        <h2>MMA</h2>
+                    </div>
+                </div>
+                <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">
+                    <div class="col-sm-2">
+                        14:00
+                    </div>
+                    <div class="col-sm-2">
+                        21:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
