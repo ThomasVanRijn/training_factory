@@ -17,10 +17,17 @@
 
             <br class="d-sm-block d-md-none">
 
-            <div class="ml-auto text-danger" style="text-align: right; margin-top: 33px">
-                <p>Welkom H. Puf <br> - klant - </p>
+            <div class="ml-auto text-right">
+                <br>
                 <form>
-                    <input class="btn btn-outline-danger" type="submit" value="uitloggen">
+                    <div class="form-group">
+                        <input placeholder="Username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Password" type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">inloggen</button>
+                    <button type="submit" class="btn btn-primary">reset ww</button>
                 </form>
             </div>
         </div>
@@ -34,22 +41,28 @@
                 <ul class="navbar-nav mr-auto" style="text-decoration: underline">
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="/home" {% if app.request.get('_route') == 'homepage' %} style="font-weight: bold" {% endif %}>Home</a>
+                           href="/" {% if app.request.get('_route') == 'home' %} style="font-weight: bold" {% endif %}>
+                            Home</a>
                     </li>
                     <li class="nav-item text-danger">
                         <a class="nav-link text-danger"
-                           href="/inschrijven" {% if app.request.get('_route') == 'inschrijven' %} style="font-weight: bold" {% endif %}>Inschijven
-                            op les</a>
+                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                            Trainings Aanbod</a>
                     </li>
                     <li class="nav-item text-danger">
                         <a class="nav-link text-danger"
-                           href="/overzicht_inschrijvingen" {% if app.request.get('_route') == 'overzicht_inschrijvingen' %} style="font-weight: bold" {% endif %}>Overzicht
-                            inschrijvingen</a>
+                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                            Lid Worden</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>Gevens
-                            lid wijzigen</a>
+                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                            Gedrachtsregels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger"
+                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                            Lokatie & contact</a>
                     </li>
                 </ul>
             </div>

@@ -19,7 +19,7 @@ class Person
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $loginname;
+    private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -56,19 +56,49 @@ class Person
      */
     private $emailaddress;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $role;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $hiring_date;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2)
+     */
+    private $salary;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $street;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $postal_code;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $place;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getLoginname(): ?string
+    public function getUsername(): ?string
     {
-        return $this->loginname;
+        return $this->username;
     }
 
-    public function setLoginname(string $loginname): self
+    public function setUsername(string $username): self
     {
-        $this->loginname = $loginname;
+        $this->username = $username;
 
         return $this;
     }
@@ -153,6 +183,78 @@ class Person
     public function setEmailaddress(string $emailaddress): self
     {
         $this->emailaddress = $emailaddress;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getHiringDate(): ?string
+    {
+        return $this->hiring_date;
+    }
+
+    public function setHiringDate(string $hiring_date): self
+    {
+        $this->hiring_date = $hiring_date;
+
+        return $this;
+    }
+
+    public function getSalary(): ?string
+    {
+        return $this->salary;
+    }
+
+    public function setSalary(string $salary): self
+    {
+        $this->salary = $salary;
+
+        return $this;
+    }
+
+    public function getStreet(): ?string
+    {
+        return $this->street;
+    }
+
+    public function setStreet(string $street): self
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    public function getPostalCode(): ?string
+    {
+        return $this->postal_code;
+    }
+
+    public function setPostalCode(string $postal_code): self
+    {
+        $this->postal_code = $postal_code;
+
+        return $this;
+    }
+
+    public function getPlace(): ?string
+    {
+        return $this->place;
+    }
+
+    public function setPlace(string $place): self
+    {
+        $this->place = $place;
 
         return $this;
     }
