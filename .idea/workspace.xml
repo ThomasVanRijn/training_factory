@@ -2,18 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/training_factory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/training_factory.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/TrainingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/LessonType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Training1Type.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/TrainingType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191216090137.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191216090418.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191216101250.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/training/_delete_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/training/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/training/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/training/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/training/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/training/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/bezoekersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/bezoekersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Training.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Training.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +200,7 @@
       <workItem from="1574843817674" duration="23660000" />
       <workItem from="1575457420850" duration="27911000" />
       <workItem from="1575977532713" duration="15917000" />
-      <workItem from="1576482012682" duration="4264000" />
+      <workItem from="1576482012682" duration="14249000" />
     </task>
     <servers />
   </component>

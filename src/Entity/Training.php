@@ -27,7 +27,7 @@ class Training
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="time")
      */
     private $duration;
 
@@ -65,12 +65,12 @@ class Training
         return $this;
     }
 
-    public function getDuration(): ?string
+    public function getDuration(): ?\DateTimeInterface
     {
         return $this->duration;
     }
 
-    public function setDuration(string $duration): self
+    public function setDuration(\DateTimeInterface $duration): self
     {
         $this->duration = $duration;
 
