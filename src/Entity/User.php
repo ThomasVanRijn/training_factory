@@ -23,9 +23,9 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
-    private $username;
+    private $loginname;
 
     /**
      * @var string The hashed password
@@ -39,7 +39,7 @@ class User implements UserInterface
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $preprovision;
 
@@ -49,7 +49,7 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string", length=255)
      */
     private $dateofbirth;
 
@@ -59,27 +59,27 @@ class User implements UserInterface
     private $gender;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $hiring_date;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
      */
     private $salary;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $street;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postal_code;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $place;
 
@@ -88,26 +88,23 @@ class User implements UserInterface
      */
     private $roles = [];
 
-    public function getPassword(): ?string
+
+
+
+
+    public function getId(): ?int
     {
-        return $this->password;
+        return $this->id;
     }
 
-    public function setPassword(string $password): self
+    public function getLoginname(): ?string
     {
-        $this->password = $password;
-
-        return $this;
+        return $this->loginname;
     }
 
-    public function getFirstname(): ?string
+    public function setLoginname(string $loginname): self
     {
-        return $this->firstname;
-    }
-
-    public function setFirstname(string $firstname): self
-    {
-        $this->firstname = $firstname;
+        $this->loginname = $loginname;
 
         return $this;
     }
@@ -136,12 +133,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDateofbirth(): ?\DateTimeInterface
+    public function getDateofbirth(): ?string
     {
         return $this->dateofbirth;
     }
 
-    public function setDateofbirth(\DateTimeInterface $dateofbirth): self
+    public function setDateofbirth(?string $dateofbirth): self
     {
         $this->dateofbirth = $dateofbirth;
 
@@ -201,7 +198,7 @@ class User implements UserInterface
         return $this->postal_code;
     }
 
-    public function setPostalCode(string $postal_code): self
+    public function setPostalCode(?string $postal_code): self
     {
         $this->postal_code = $postal_code;
 
@@ -213,16 +210,11 @@ class User implements UserInterface
         return $this->place;
     }
 
-    public function setPlace(string $place): self
+    public function setPlace(?string $place): self
     {
         $this->place = $place;
 
         return $this;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getEmail(): ?string
@@ -244,7 +236,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string)$this->email;
+        return (string) $this->email;
     }
 
     /**
@@ -269,6 +261,21 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
+    public function getPassword(): string
+    {
+        return (string) $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
     public function getSalt()
     {
         // not needed when using the "bcrypt" algorithm in security.yaml
@@ -281,5 +288,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
     }
 }

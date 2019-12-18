@@ -95,22 +95,22 @@
                     </li>
                     <li class="nav-item text-danger">
                         <a class="nav-link text-danger"
-                           href="/trainingsAanbod" {% if app.request.get('_route') == 'trainingsAanbod' %} style="font-weight: bold" {% endif %}>
+                           href="/trainings-aanbod" {% if app.request.get('_route') == 'trainings-aanbod' %} style="font-weight: bold" {% endif %}>
                             Trainings Aanbod</a>
                     </li>
                     <li class="nav-item text-danger">
                         <a class="nav-link text-danger"
-                           href="/lid_worden" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/lid-worden" {% if app.request.get('_route') == 'lid-worden' %} style="font-weight: bold" {% endif %}>
                             Lid Worden</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/gedrachtsregels" {% if app.request.get('_route') == 'gedrachtsregels' %} style="font-weight: bold" {% endif %}>
                             Gedrachtsregels</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/contact" {% if app.request.get('_route') == 'contact' %} style="font-weight: bold" {% endif %}>
                             Lokatie & contact</a>
                     </li>
                 {% endif %}
