@@ -36,6 +36,11 @@ class Training
      */
     private $costs;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $brochureFilename;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Training
     public function setCosts(int $costs): self
     {
         $this->costs = $costs;
+
+        return $this;
+    }
+
+    public function getBrochureFilename()
+    {
+        return $this->brochureFilename;
+    }
+
+    public function setBrochureFilename($brochureFilename)
+    {
+        $this->brochureFilename = $brochureFilename;
 
         return $this;
     }

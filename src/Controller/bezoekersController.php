@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\TrainingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class bezoekersController extends AbstractController
 {
     /**
-     * @Route ("/", name="app_homepage")
+     * @Route ("/", name="home")
      */
     public function home()
     {
@@ -26,5 +27,15 @@ class bezoekersController extends AbstractController
         return $this->render('/views/bezoeker/home.html.twig', [
             ]
         );
+    }
+
+    /**
+     * @Route ("/trainingsAanbod", name="trainingsAanbod")
+     */
+    public function trainingsAanbod(TrainingRepository $trainingRepository): Response
+    {
+        return $this->render('views/bezoeker/trainingsAanbod.html.twig', [
+            'trainings' => $trainingRepository->findAll(),
+        ]);
     }
 }
