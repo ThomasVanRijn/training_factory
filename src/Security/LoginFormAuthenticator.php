@@ -94,6 +94,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     {
         if ($this->security->isGranted('ROLE_ADMIN')) {
             return new RedirectResponse($this->urlGenerator->generate('adminhome'));
+        } elseif ($this->security->isGranted('ROLE_USER')) {
+            return new RedirectResponse($this->urlGenerator->generate('home'));
         }
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
