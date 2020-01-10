@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 16 dec 2019 om 09:55
+-- Gegenereerd op: 10 jan 2020 om 12:58
 -- Serverversie: 10.4.8-MariaDB
 -- PHP-versie: 7.1.33
 
@@ -32,10 +32,11 @@ USE `training_factory`;
 
 CREATE TABLE `lesson` (
   `id` int(11) NOT NULL,
-  `time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` time NOT NULL,
   `date` date NOT NULL,
   `location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `max_persons` int(11) NOT NULL
+  `max_persons` int(11) NOT NULL,
+  `training_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -54,14 +55,26 @@ CREATE TABLE `migration_versions` (
 --
 
 INSERT INTO `migration_versions` (`version`, `executed_at`) VALUES
-('20191210104733', '2019-12-10 10:48:00'),
-('20191210105033', '2019-12-10 10:50:56'),
-('20191210105407', '2019-12-10 10:57:54'),
-('20191210105952', '2019-12-10 10:59:59'),
-('20191210110437', '2019-12-10 11:04:43'),
-('20191210114127', '2019-12-10 11:42:24'),
-('20191211135020', '2019-12-11 13:51:19'),
-('20191213084339', '2019-12-13 08:44:05');
+('20191210104733', '2020-01-08 10:12:42'),
+('20191210105033', '2020-01-08 10:12:42'),
+('20191210105407', '2020-01-08 10:12:42'),
+('20191210105952', '2020-01-08 10:12:42'),
+('20191210110437', '2020-01-08 10:12:42'),
+('20191210114127', '2020-01-08 10:12:42'),
+('20191211135020', '2020-01-08 10:12:42'),
+('20191213084339', '2020-01-08 10:12:42'),
+('20191216090137', '2020-01-08 10:12:42'),
+('20191216090418', '2020-01-08 10:12:42'),
+('20191216101250', '2020-01-08 10:12:42'),
+('20191218125740', '2020-01-08 10:12:42'),
+('20191218141627', '2020-01-08 10:12:43'),
+('20200110075601', '2020-01-10 07:56:06'),
+('20200110075729', '2020-01-10 07:57:33'),
+('20200110101941', '2020-01-10 10:19:45'),
+('20200110113409', '2020-01-10 11:34:28'),
+('20200110113756', '2020-01-10 11:38:02'),
+('20200110114015', '2020-01-10 11:40:26'),
+('20200110114351', '2020-01-10 11:43:54');
 
 -- --------------------------------------------------------
 
@@ -108,9 +121,18 @@ CREATE TABLE `training` (
   `id` int(11) NOT NULL,
   `naam` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `duration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `costs` int(11) NOT NULL
+  `duration` time NOT NULL,
+  `costs` int(11) NOT NULL,
+  `brochure_filename` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `training`
+--
+
+INSERT INTO `training` (`id`, `naam`, `description`, `duration`, `costs`, `brochure_filename`) VALUES
+(1, 'Kickboxen', 'leuk', '01:00:00', 12, 'pf1-5e185550d699f.jpeg'),
+(2, 'gayzijn', 'thomas is big gay', '01:00:00', 5, '');
 
 -- --------------------------------------------------------
 
@@ -128,12 +150,11 @@ CREATE TABLE `user` (
 -- Gegevens worden geëxporteerd voor tabel `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `roles`, `password`, `first_name`) VALUES
-(220, 'tester1@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$yo/pNM.G8umxRJ2l0nWpk.7wi4AHYBltx2A5/FNh/AXYbXxH5IYYa', 'tester1'),
-(221, 'tester2@gmail.com', '[\"ROLE_USER\"]', '$2y$13$hB0QgHf4q4B1K2ttM0mTJ.9We.fR1absy7YP.twLHrUOotwgup/se', 'tester2'),
-(222, 'tester3@gmail.com', '[\"ROLE_USER\"]', '$2y$13$.1PGwQQBjcBhvBzbC8azye8uk34mlVAdfRs1hg.8W/ywMCBHERx5a', 'tester3'),
-(223, 'tester4@gmail.com', '[\"ROLE_USER\"]', '$2y$13$l8aX1qCXQqe65ZkWj9035uM2k0JDcWTUeBAqGIFjhyVvTdHiKqkaC', 'tester4'),
-(224, 'tester5@gmail.com', '[\"ROLE_USER\"]', '$2y$13$NEs3JiPGPC4J74pOuTDGReCucFpcslQGPxrsHpoLH7SqgwevWfg4u', 'tester5');
+INSERT INTO `user` (`id`, `email`, `roles`, `password`, `loginname`, `firstname`, `preprovision`, `lastname`, `dateofbirth`, `gender`, `hiring_date`, `salary`, `street`, `postal_code`, `place`) VALUES
+(1, 'thvrijn2002@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$sXRyCykEc.j7LPs5cn3YuutbMtzX/lo8MV1N65S9XqouSeofXmOPe', 'Thoompje', 'Thomas', 'van', 'Rijn', '2002-10-02', 'man', '', '0.00', 'J.W Frisodreef', '2224BG', 'Katwijk'),
+(3, 'admin@gmail.com', '[]', '$2y$13$Ps3lu8eeUIg0W1MV/OpUdeKV6YV.BKhiOpSCqJIC7znnOROucPm42', 'Admin', 'Klaas', NULL, 'Vaak', '1987-05-19', 'man', NULL, NULL, 'straat', '1234ab', 'voorburg'),
+(4, 'instructeur@test.com', '[\"ROLE_INSTRUCTEUR\"]', '$2y$13$EZziovkEOnJ46j98/fmnN.1ZQnmps7JQKu3oF3kSgu1WKypBExqO.', 'instructeur', 'instructeur', NULL, '1', '1900-03-01', 'man', NULL, NULL, 'straat', '1234ab', 'den haag'),
+(5, 'user@test.com', '[]', '$2y$13$IB8ouQh8NM70mpoprARpJuW//8l78miUzm6n3ORo5A8gVENQJA69.', 'User', 'user', NULL, '1', '1961-06-16', 'man', NULL, NULL, 'straat', '1234ab', 'den haag');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -143,7 +164,8 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `first_name`) VALUES
 -- Indexen voor tabel `lesson`
 --
 ALTER TABLE `lesson`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_F87474F3BEFD98D1` (`training_id`);
 
 --
 -- Indexen voor tabel `migration_versions`
@@ -195,13 +217,23 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT voor een tabel `training`
 --
 ALTER TABLE `training`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `lesson`
+--
+ALTER TABLE `lesson`
+  ADD CONSTRAINT `FK_F87474F3BEFD98D1` FOREIGN KEY (`training_id`) REFERENCES `training` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
