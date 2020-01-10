@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191210114127 extends AbstractMigration
+final class Version20200110075601 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,7 @@ final class Version20191210114127 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE lesson ADD location VARCHAR(255) NOT NULL, ADD max_persons INT NOT NULL');
-        $this->addSql('ALTER TABLE person ADD role VARCHAR(255) NOT NULL, ADD hiring_date VARCHAR(255) NOT NULL, ADD salary NUMERIC(10, 2) NOT NULL, ADD street VARCHAR(255) NOT NULL, ADD postal_code VARCHAR(255) NOT NULL, ADD place VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE user CHANGE roles roles JSON NOT NULL, CHANGE hiring_date hiring_date VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +30,6 @@ final class Version20191210114127 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE lesson DROP location, DROP max_persons');
-        $this->addSql('ALTER TABLE person DROP role, DROP hiring_date, DROP salary, DROP street, DROP postal_code, DROP place');
+        $this->addSql('ALTER TABLE user CHANGE hiring_date hiring_date VARCHAR(255) NOT NULL COLLATE utf8mb4_unicode_ci, CHANGE roles roles LONGTEXT NOT NULL COLLATE utf8mb4_bin');
     }
 }

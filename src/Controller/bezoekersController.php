@@ -24,7 +24,7 @@ class bezoekersController extends AbstractController
      */
     public function lid_worden()
     {
-        return $this->render('/views/bezoeker/home.html.twig', [
+        return $this->render('/views/bezoeker/lidWorden.html.twig', [
             ]
         );
     }
