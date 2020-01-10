@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/documentation/Kwaliteitshandboek.docx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
@@ -13,6 +14,17 @@
       <change afterPath="$PROJECT_DIR$/templates/user/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/adminController.php" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/templates/views/bezoeker/gedrachtsregels.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/views/bezoeker/lid-worden.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/uploads/kickboxentraining-5dfa2b2792d3b.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/uploads/mmatraining-5dfa2b89b6adf.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/uploads/pf1-5dfa30da8a932.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/uploads/stootzaktraining-5dfa2b580841c.jpeg" beforeDir="false" />
+>>>>>>> f4d42b32fa41dc87f093415ae5303ade0b3b81b0
       <change beforePath="$PROJECT_DIR$/src/Controller/bezoekersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/bezoekersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191210104733.php" beforeDir="false" />
@@ -23,6 +35,7 @@
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191210114127.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191211135020.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191213084339.php" beforeDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191216090137.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200110075729.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191216090418.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200110075601.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191216101250.php" beforeDir="false" />
@@ -30,6 +43,16 @@
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191218141627.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/bezoeker/lidWorden.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/bezoeker/lidWorden.html.twig" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191216090137.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191216090418.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191216101250.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191218125740.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191218141627.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191218161658.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/bezoeker/lidWorden.html.twig" beforeDir="false" />
+>>>>>>> f4d42b32fa41dc87f093415ae5303ade0b3b81b0
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -176,18 +199,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoekers" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\src\Controller" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoeker" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\member" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoekers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\training_factory\templates\views\bezoeker" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoekers" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\pages" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -215,8 +239,13 @@
       <workItem from="1574843817674" duration="23660000" />
       <workItem from="1575457420850" duration="27911000" />
       <workItem from="1575977532713" duration="15917000" />
+<<<<<<< HEAD
       <workItem from="1576482012682" duration="38972000" />
       <workItem from="1578305716184" duration="16316000" />
+=======
+      <workItem from="1576482012682" duration="38797000" />
+      <workItem from="1576684928679" duration="3738000" />
+>>>>>>> f4d42b32fa41dc87f093415ae5303ade0b3b81b0
     </task>
     <servers />
   </component>

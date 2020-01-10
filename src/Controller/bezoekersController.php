@@ -14,28 +14,38 @@ class bezoekersController extends AbstractController
      */
     public function home()
     {
-        return $this->render('/views/bezoeker/home.html.twig', [
-            ]
-        );
+        return $this->render('/views/bezoeker/home.html.twig');
     }
 
     /**
-     * @Route ("/lid_worden", name="lid_worden")
-     */
-    public function lid_worden()
-    {
-        return $this->render('/views/bezoeker/lidWorden.html.twig', [
-            ]
-        );
-    }
-
-    /**
-     * @Route ("/trainingsAanbod", name="trainingsAanbod")
+     * @Route ("/trainings-aanbod", name="trainings-aanbod")
      */
     public function trainingsAanbod(TrainingRepository $trainingRepository): Response
     {
-        return $this->render('views/bezoeker/trainingsAanbod.html.twig', [
+        return $this->render('views/bezoeker/trainings-aanbod.html.twig', [
             'trainings' => $trainingRepository->findAll(),
         ]);
+    }
+    /**
+     * @Route ("/lid-worden", name="lid-worden")
+     */
+    public function lidWorden()
+    {
+        return $this->render('/views/bezoeker/lid-worden.html.twig');
+    }
+
+    /**
+     * @Route ("/gedrachtsregels", name="gedrachtsregels")
+     */
+    public function gedrachtsregels()
+    {
+        return $this->render('views/bezoeker/gedrachtsregels.html.twig');
+    }
+    /**
+     * @Route ("/contact", name="contact")
+     */
+    public function contact()
+    {
+        return $this->render('views/bezoeker/contact.html.twig');
     }
 }
