@@ -36,6 +36,13 @@ class Lesson
      */
     private $max_persons;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="training", inversedBy="lessons")
+     */
+    private $training;
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,4 +95,20 @@ class Lesson
 
         return $this;
     }
+
+    public function getTraining(): ?training
+    {
+        return $this->training;
+    }
+
+    public function setTraining(?training $training): self
+    {
+        $this->training = $training;
+
+        return $this;
+    }
+
+
+
+
 }
