@@ -17,7 +17,7 @@ class Lesson
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="time")
      */
     private $time;
 

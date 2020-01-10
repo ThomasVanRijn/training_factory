@@ -31,7 +31,7 @@ class bezoekersController extends AbstractController
      */
     public function lidWorden()
     {
-        return $this->render('/views/bezoeker/lid-worden.html.twig');
+        return $this->render('/views/bezoeker/lidWorden.html.twig');
     }
 
     /**

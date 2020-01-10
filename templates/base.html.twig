@@ -66,6 +66,22 @@
                            href="/admin/training" {% if app.request.get('_route') == 'training_index' %} style="font-weight: bold" {% endif %}>
                             Trainingen</a>
                     </li>
+                {% elseif is_granted('ROLE_INSTRUCTEUR') %}
+                    <li class="nav-item">
+                        <a class="nav-link text-danger"
+                           href="/admin/" {% if app.request.get('_route') == 'home' %} style="font-weight: bold" {% endif %}>
+                            Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger"
+                           href="/lesson/new" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                            plannen lessen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger"
+                           href="/lesson" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                            lessen beheer</a>
+                    </li>
                 {% elseif is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link text-danger"

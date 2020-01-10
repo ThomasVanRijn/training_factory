@@ -49,7 +49,7 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date", length=255)
      */
     private $dateofbirth;
 
@@ -133,12 +133,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDateofbirth(): ?string
+    public function getDateofbirth(): ?\DateTime
     {
         return $this->dateofbirth;
     }
 
-    public function setDateofbirth(?string $dateofbirth): self
+    public function setDateofbirth(?\DateTime $dateofbirth): self
     {
         $this->dateofbirth = $dateofbirth;
 
@@ -236,7 +236,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string)$this->username;
+        return (string)$this->loginname;
     }
     public function setUsername(string $username): self
     {
