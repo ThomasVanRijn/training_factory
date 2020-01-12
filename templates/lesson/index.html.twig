@@ -21,7 +21,7 @@
             {% for lesson in lessons %}
                 <tr>
                     <td>{{ lesson.id }}</td>
-                    <td>{{ lesson.time }}</td>
+                    <td>{{ lesson.time ? lesson.time|date('H:i') : '' }}</td>
                     <td>{{ lesson.date ? lesson.date|date('Y-m-d') : '' }}</td>
                     <td>{{ lesson.location }}</td>
                     <td>{{ lesson.maxPersons }}</td>

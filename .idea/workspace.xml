@@ -2,18 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200110113409.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200110113756.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200110114015.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200110114351.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/uploads/kickboxentraining-5e1b88d7df8b2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200112201907.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TrainingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TrainingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/bezoekersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/bezoekersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Training.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/training.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/LessonType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/LessonType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Training1Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Training1Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/TrainingType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TrainingType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TrainingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TrainingRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200110101941.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200110113409.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200110113756.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200110114015.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200110114351.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lesson/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lesson/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lesson/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lesson/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lesson/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lesson/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,19 +166,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\src\Controller" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoeker" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\member" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoekers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\training_factory\templates\views\bezoeker" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoekers" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\training_factory\src\Entity" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\src\Controller" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoeker" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\member" />
     </key>
   </component>
   <component name="RunDashboard">

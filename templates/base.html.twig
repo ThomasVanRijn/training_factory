@@ -48,7 +48,7 @@
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="/admin/" {% if app.request.get('_route') == 'home' %} style="font-weight: bold" {% endif %}>
+                           href="/" {% if app.request.get('_route') == 'home' %} style="font-weight: bold" {% endif %}>
                             Home</a>
                     </li>
                     <li class="nav-item">
@@ -58,7 +58,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/admin/user" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
                             Leden</a>
                     </li>
                     <li class="nav-item">
@@ -69,7 +69,7 @@
                 {% elseif is_granted('ROLE_INSTRUCTEUR') %}
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="/admin/" {% if app.request.get('_route') == 'home' %} style="font-weight: bold" {% endif %}>
+                           href="/" {% if app.request.get('_route') == 'home' %} style="font-weight: bold" {% endif %}>
                             Home</a>
                     </li>
                     <li class="nav-item">
@@ -116,7 +116,7 @@
                     </li>
                     <li class="nav-item text-danger">
                         <a class="nav-link text-danger"
-                           href="/lid-worden" {% if app.request.get('_route') == 'lid-worden' %} style="font-weight: bold" {% endif %}>
+                           href="/user/new" {% if app.request.get('_route') == 'lid-worden' %} style="font-weight: bold" {% endif %}>
                             Lid Worden</a>
                     </li>
                     <li class="nav-item">

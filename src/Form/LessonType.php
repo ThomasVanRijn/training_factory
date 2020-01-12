@@ -6,6 +6,9 @@ use App\Entity\Lesson;
 use App\Entity\training;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +18,7 @@ class LessonType extends AbstractType
     {
         $builder
             ->add('time')
-            ->add('date')
+            ->add('date', DateType::class)
             ->add('location')
             ->add('max_persons')
             ->add('training', EntityType::class, ['class' => training::class]);

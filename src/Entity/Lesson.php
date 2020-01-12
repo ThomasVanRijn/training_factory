@@ -48,12 +48,12 @@ class Lesson
         return $this->id;
     }
 
-    public function getTime(): ?string
+    public function getTime(): ?\DateTimeInterface
     {
         return $this->time;
     }
 
-    public function setTime(string $time): self
+    public function setTime(\DateTimeInterface $time): self
     {
         $this->time = $time;
 
