@@ -28,8 +28,19 @@
             <div class="col">
                 {% if app.user %}
                     <div class="mb-3">
-                        You are logged in as {{ app.user.username }}, <a class="btn btn-danger"
-                                                                         href="{{ path('app_logout') }}">Logout</a>
+                        Welkom {{ app.user.firstname }} {{ app.user.preprovision }} {{ app.user.lastname }}
+                        <br>
+                        <p class="text-right mb-0">
+                            {% if is_granted("ROLE_ADMIN") %}
+                                - administratie -
+                            {% elseif is_granted("ROLE_INSTRUCTEUR") %}
+                                - instructeur -
+                            {% elseif is_granted("ROLE_USER") %}
+                                - klant -
+                            {% endif %}
+                        </p>
+                        <br>
+                        <a class="btn btn-danger float-right" href="{{ path('app_logout') }}">Logout</a>
                     </div>
                 {% else %}
                     <a class="btn btn-danger" href="/login">Login</a>
@@ -90,7 +101,7 @@
                     </li>
                     <li class="nav-item text-danger">
                         <a class="nav-link text-danger"
-                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/user/inschrijven" {% if app.request.get('_route') == 'inschrijven' %} style="font-weight: bold" {% endif %}>
                             Inschrijven op les</a>
                     </li>
                     <li class="nav-item text-danger">
@@ -100,7 +111,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="/user/edit" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/user/{{ app.user.id }}/edit" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
                             Gegevens lid wijzigen</a>
                     </li>
                 {% else %}

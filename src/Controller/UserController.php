@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\LessonRepository;
+use App\Repository\TrainingRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +18,17 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class UserController extends AbstractController
 {
+    /**
+     * @Route("/inschrijven", name="inschrijven")
+     */
+    public function inschrijven(LessonRepository $LessonRepository, TrainingRepository $trainingRepository)
+    {
+        return $this->render('views/leden/inschrijven.html.twig', [
+            'lessons' => $LessonRepository->findAll(),
+            'trainings' => $trainingRepository->findAll(),
+        ]);
+    }
+
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
@@ -64,15 +77,17 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('user/edit.html.twig', [
@@ -94,4 +109,6 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
+
+
 }
