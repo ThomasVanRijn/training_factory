@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/uploads/kickboxentraining-5e1c56bd8bba4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/uploads/mmatraining-5e1c5820c5c04.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/uploads/wallpaper1-5e1c5c82596b8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/training/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/training/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/bezoeker/trainings-aanbod.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/bezoeker/trainings-aanbod.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/leden/h-i-f-component/h-i-f.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/leden/home.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/leden/inschrijven.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/leden/inschrijven.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +191,7 @@
       <workItem from="1576684928679" duration="3738000" />
       <workItem from="1578903101621" duration="2963000" />
       <workItem from="1578906124023" duration="101000" />
-      <workItem from="1578911794308" duration="6102000" />
+      <workItem from="1578911794308" duration="6140000" />
     </task>
     <task id="LOCAL-00001" summary="bezig met lessen">
       <created>1578655841190</created>
@@ -227,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578906168784</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="bezig met inschrijven lessen">
+      <created>1578918580044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578918580044</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +245,7 @@
     <MESSAGE value="bezig met lessen" />
     <MESSAGE value="Lessen crud af" />
     <MESSAGE value="alles tot week 5 af!" />
-    <option name="LAST_COMMIT_MESSAGE" value="alles tot week 5 af!" />
+    <MESSAGE value="bezig met inschrijven lessen" />
+    <option name="LAST_COMMIT_MESSAGE" value="bezig met inschrijven lessen" />
   </component>
 </project>
