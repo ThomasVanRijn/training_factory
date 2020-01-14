@@ -21,6 +21,16 @@ class Registration
      */
     private $payment;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="registrations")
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\lesson", inversedBy="registrations")
+     */
+    private $lesson;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +44,30 @@ class Registration
     public function setPayment(string $payment): self
     {
         $this->payment = $payment;
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getLesson(): ?lesson
+    {
+        return $this->lesson;
+    }
+
+    public function setLesson(?lesson $lesson): self
+    {
+        $this->lesson = $lesson;
 
         return $this;
     }

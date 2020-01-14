@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,21 @@ class Lesson
      * @ORM\ManyToOne(targetEntity="training", inversedBy="lessons")
      */
     private $training;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="lessons")
+     */
+    private $instructeur;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Registration", mappedBy="lesson")
+     */
+    private $registrations;
+
+    public function __construct()
+    {
+        $this->registrations = new ArrayCollection();
+    }
 
 
 
@@ -104,6 +121,49 @@ class Lesson
     public function setTraining(?training $training): self
     {
         $this->training = $training;
+
+        return $this;
+    }
+
+    public function getInstructeur(): ?user
+    {
+        return $this->instructeur;
+    }
+
+    public function setInstructeur(?user $instructeur): self
+    {
+        $this->instructeur = $instructeur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Registration[]
+     */
+    public function getRegistrations(): Collection
+    {
+        return $this->registrations;
+    }
+
+    public function addRegistration(Registration $registration): self
+    {
+        if (!$this->registrations->contains($registration)) {
+            $this->registrations[] = $registration;
+            $registration->setLesson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRegistration(Registration $registration): self
+    {
+        if ($this->registrations->contains($registration)) {
+            $this->registrations->removeElement($registration);
+            // set the owning side to null (unless already changed)
+            if ($registration->getLesson() === $this) {
+                $registration->setLesson(null);
+            }
+        }
 
         return $this;
     }

@@ -28,7 +28,7 @@
             <div class="col">
                 {% if app.user %}
                     <div class="mb-3">
-                        Welkom {{ app.user.firstname }} {{ app.user.preprovision }} {{ app.user.lastname }}
+                        Welkom {{ app.user.firstname|first }}. {{ app.user.preprovision }} {{ app.user.lastname }}
                         <br>
                         <p class="text-right mb-0">
                             {% if is_granted("ROLE_ADMIN") %}

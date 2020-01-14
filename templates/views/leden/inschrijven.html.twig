@@ -30,12 +30,14 @@
                 <div class="row align-items-center" style="height: 50%">
                     <div class="col">
                         <h2>{{ lesson.training }}</h2>
+                        <a href="{{ path('app_nu_inschrijvingen', {'id': lesson.id}) }}">inschrijven</a>
                     </div>
                 </div>
                 <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">
                     <div class="col">
                         <p class="d-inline"> Om: {{ lesson.time ? lesson.time|date('H:i') : '' }}</p>
                     </div>
+
                 </div>
             </div>
         {% else %}
