@@ -2,23 +2,22 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\UserType;
 use App\Repository\TrainingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+/**
+ * @Route ("/bezoeker", name="")
+ */
 class bezoekersController extends AbstractController
 {
     /**
-     * @Route ("/", name="home")
-     */
-    public function home()
-    {
-        return $this->render('/views/bezoeker/home.html.twig');
-    }
-
-    /**
-     * @Route ("/trainings-aanbod", name="trainings-aanbod")
+     * @Route ("/trainings-aanbod", name="trainings_aanbod")
      */
     public function trainingsAanbod(TrainingRepository $trainingRepository): Response
     {
@@ -26,12 +25,30 @@ class bezoekersController extends AbstractController
             'trainings' => $trainingRepository->findAll(),
         ]);
     }
+
     /**
-     * @Route ("/lid-worden", name="lid-worden")
+     * @Route("/lid-worden", name="lid_worden", methods={"GET","POST"})
      */
-    public function lidWorden()
+    public function new(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
-        return $this->render('/views/bezoeker/lid-worden.html.twig');
+        $user = new user();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('user/new.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
@@ -41,6 +58,7 @@ class bezoekersController extends AbstractController
     {
         return $this->render('views/bezoeker/gedrachtsregels.html.twig');
     }
+
     /**
      * @Route ("/contact", name="contact")
      */

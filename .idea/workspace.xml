@@ -2,22 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/uploads/kickboxentraining-5e1da0bdd7ed0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/uploads/mmatraining-5e1da2deecd25.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/LedenController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200114112811.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200114125851.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/views/leden/gegevens-wijzigen.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/overig/LessonController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/overig/TrainingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/uploads/stootzaktraining-5e1ed05347eac.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/uploads/stootzaktraining-5e1ed08779657.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/uploads/stootzaktraining-5e1ed3fdca4db.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/uploads/stootzaktraining-5e1ed413e96d4.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/uploads/stootzaktraining-5e1ed4330cf1f.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/InstructeurController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PublicController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LessonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LedenController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LessonController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TrainingController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/bezoekersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/bezoekersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200112201907.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lesson/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lesson/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lesson/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lesson/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/training/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/training/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/training/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/training/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/bezoeker/lidWorden.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/leden/inschrijven.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/leden/inschrijven.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -239,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578918580044</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bezig met inschrijven lessen">
+      <created>1579008622308</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1579008622308</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

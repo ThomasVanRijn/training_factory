@@ -44,7 +44,7 @@ class Lesson
     private $training;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="lessons")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="lessons")
      */
     private $instructeur;
 

@@ -3,10 +3,15 @@
 {% block title %}Training{% endblock %}
 
 {% block body %}
-    <h1>Training</h1>
+    <div class="container">
+        <h1>Training</h1>
 
-    <table class="table">
-        <tbody>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Image</th>
+                <td><img class="img-fluid" src="{{ asset('img/uploads/' ~ training.brochureFilename) }}" style="height: 250px"></td>
+            </tr>
             <tr>
                 <th>Id</th>
                 <td>{{ training.id }}</td>
@@ -27,12 +32,13 @@
                 <th>Costs</th>
                 <td>{{ training.costs }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <a href="{{ path('training_index') }}">back to list</a>
+        <a class="btn btn-outline-success" href="{{ path('training_index') }}">back to list</a>
 
-    <a href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
+        <a class="btn btn-outline-warning" href="{{ path('training_edit', {'id': training.id}) }}">edit</a>
 
-    {{ include('training/_delete_form.html.twig') }}
+        {{ include('training/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

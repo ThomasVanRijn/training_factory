@@ -30,7 +30,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/", name="user_index", methods={"GET"})
+     * @Route("/gegevens-wijzigen", name="gegevens_wijzigen", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
     {
@@ -38,6 +38,8 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+
+
 
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
@@ -109,6 +111,4 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
-
-
 }
