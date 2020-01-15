@@ -2,11 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Lesson;
+use App\Entity\Registration;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\LessonRepository;
+use App\Repository\RegistrationRepository;
 use App\Repository\TrainingRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,14 +23,34 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/inschrijven", name="inschrijven")
+     * @Route("/lesson/overzicht", name="user_lessen_overzicht")
      */
-    public function inschrijven(LessonRepository $LessonRepository, TrainingRepository $trainingRepository)
+    public function lessenOverzicht(LessonRepository $LessonRepository, TrainingRepository $trainingRepository, RegistrationRepository $registrationRepository)
     {
+//        $registrationRepository->memberCount()
         return $this->render('views/leden/inschrijven.html.twig', [
             'lessons' => $LessonRepository->findAll(),
             'trainings' => $trainingRepository->findAll(),
+            'registrations' => $registrationRepository,
         ]);
+    }
+
+    /**
+     * @Route("/inschrijven/{id}" , name="app_nu_inschrijvingen")
+     */
+    public function inschrijvenLesson($id, EntityManagerInterface $em)
+    {
+        $les = $this->getDoctrine()->getRepository(Lesson::class)->find($id);
+        $user = $this->getUser();
+
+        $reg = new Registration();
+        $reg->setLesson($les);
+        $reg->setUser($user);
+        $reg->setpayment(50);
+
+        $em->persist($reg);
+        $em->flush();
+        return $this->redirectToRoute('user_lessen_overzicht');
     }
 
     /**
@@ -38,7 +62,6 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
-
 
 
     /**
@@ -103,7 +126,7 @@ class UserController extends AbstractController
      */
     public function delete(Request $request, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();

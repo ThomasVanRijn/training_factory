@@ -19,6 +19,22 @@ class RegistrationRepository extends ServiceEntityRepository
         parent::__construct($registry, Registration::class);
     }
 
+    public function countMember($lesson)
+    {
+        // automatically knows to select Products
+        // the "p" is an alias you'll use in the rest of the query
+        $qb = $this->createQueryBuilder('reg')
+            ->where('reg.user = :lesson')
+            ->setParameter('lesson', $lesson);
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+
+        // to get just one result:
+        // $product = $query->setMaxResults(1)->getOneOrNullResult();
+    }
+
     // /**
     //  * @return Registration[] Returns an array of Registration objects
     //  */

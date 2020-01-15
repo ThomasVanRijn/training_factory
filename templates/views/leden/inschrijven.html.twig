@@ -7,38 +7,63 @@
         {% for i in 1..13 %}
             <a class="is-active js-schedule-date btn btn-warning m-1"
                style="list-style-type: none;"
-               href="{{ path('inschrijven', {date:date("now")|date_modify("+#{i} day")|date("d-m-Y")}) }}"> {{ date("now")|date_modify("+#{i} day")|date("D d M") }}
+               href="{{ path('user_lessen_overzicht', {date:date("now")|date_modify("+#{i} day")|date("d-m-Y")}) }}"> {{ date("now")|date_modify("+#{i} day")|date("D d M") }}
             </a>
         {% endfor %}
     </div>
     <br>
     <div class="row">
+{#        {% for lesson in lessons %}#}
+{#            <div class="col-sm-1 mb-4">#}
+{#                <img class="img-fluid" src="{{ asset('img/uploads/' ~ lesson.training.brochureFilename) }}" alt="">#}
+{#            </div>#}
+{#            <div class="col-sm-2 mb-5">#}
+{#                <div class="row align-items-center" style="height: 50%">#}
+{#                    <div class="col">#}
+{#                        <h2>{{ lesson.training }}</h2>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">#}
+{#                    <div class="col">#}
+{#                        <p class="d-inline"> Om: {{ lesson.time ? lesson.time|date('H:i') : '' }}</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-sm-3 mb-5">#}
+{#                <a class="btn btn-danger text-left" href="{{ path('app_nu_inschrijvingen', {'id': lesson.id}) }}">Meer#}
+{#                    Informatie</a>#}
+{#            </div>#}
+{#        {% else %}#}
+{#            <p>Helaas er zijn op het moment geen trainingen.</p>#}
+{#        {% endfor %}#}
+    </div>
+    <div class="row">
         {% for lesson in lessons %}
-            <a href="">
-                <div class="col-sm-1 mb-4">
-                    {% for training in trainings %}
-                        {% if training.naam == lesson.training %}
-                            <img class="img-fluid" src="{{ asset('img/uploads/' ~ training.brochureFilename) }}" alt="">
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <div class="col-sm-5 mb-4">
-                    <div class="row align-items-center" style="height: 50%">
-                        <div class="col">
-                            <h2>{{ lesson.training }}</h2>
-                        </div>
-                    </div>
-                    <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">
-                        <div class="col">
-                            <p class="d-inline"> Om: {{ lesson.time ? lesson.time|date('H:i') : '' }}</p>
-                        </div>
-                    </div>
-                    {#                <a href="{{ path('inschrijven', {'id': lesson.id}) }}">inschrijven</a>#}
-                </div>
-            </a>
+        <div class="col-sm-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Training</th>
+                    <th>Tijd</th>
+                    <th>Max-personen</th>
+                    <th>Inschrijven</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ lesson.training }}</td>
+                    <td>{{ lesson.time ? lesson.time|date('H:i') : '' }}</td>
+                    <td>{{ lesson.maxpersons }}</td>
+                    {{ registrations.countMember(lesson.id) }}
+                    <td>
+                        <a class="btn btn-outline-success" href="{{ path('app_nu_inschrijvingen', {'id': lesson.id}) }}">Inschrijven</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         {% else %}
             <p>Helaas er zijn op het moment geen trainingen.</p>
         {% endfor %}
-    </div>
     </div>
 {% endblock %}
