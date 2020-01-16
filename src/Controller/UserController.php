@@ -27,11 +27,12 @@ class UserController extends AbstractController
      */
     public function lessenOverzicht(LessonRepository $LessonRepository, TrainingRepository $trainingRepository, RegistrationRepository $registrationRepository)
     {
-//        $registrationRepository->memberCount()
         return $this->render('views/leden/inschrijven.html.twig', [
             'lessons' => $LessonRepository->findAll(),
             'trainings' => $trainingRepository->findAll(),
-            'registrations' => $registrationRepository,
+            'registrations' => $registrationRepository->findBy([
+                'user' => $this->getUser(),
+            ])
         ]);
     }
 
@@ -51,6 +52,30 @@ class UserController extends AbstractController
         $em->persist($reg);
         $em->flush();
         return $this->redirectToRoute('user_lessen_overzicht');
+    }
+
+    /**
+     * @Route("/inschrijvingen/overzicht" , name="inschrijvingen_overzicht")
+     */
+    public function inschrijvingenOverzicht(RegistrationRepository $registrationRepository): Response
+    {
+        return $this->render('views/leden/overzicht-inschrijvingen.html.twig', [
+            'registrations' => $registrationRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/inschrijving/verwijderen{id}", name="uitschrijven", methods={"DELETE"})
+     */
+    public function uitschrijvenLesson(Request $request, RegistrationRepository $RegistrationRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('inschrijvingen_overzicht');
     }
 
     /**

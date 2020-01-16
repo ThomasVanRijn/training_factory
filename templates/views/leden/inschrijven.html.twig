@@ -13,57 +13,61 @@
     </div>
     <br>
     <div class="row">
-{#        {% for lesson in lessons %}#}
-{#            <div class="col-sm-1 mb-4">#}
-{#                <img class="img-fluid" src="{{ asset('img/uploads/' ~ lesson.training.brochureFilename) }}" alt="">#}
-{#            </div>#}
-{#            <div class="col-sm-2 mb-5">#}
-{#                <div class="row align-items-center" style="height: 50%">#}
-{#                    <div class="col">#}
-{#                        <h2>{{ lesson.training }}</h2>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">#}
-{#                    <div class="col">#}
-{#                        <p class="d-inline"> Om: {{ lesson.time ? lesson.time|date('H:i') : '' }}</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="col-sm-3 mb-5">#}
-{#                <a class="btn btn-danger text-left" href="{{ path('app_nu_inschrijvingen', {'id': lesson.id}) }}">Meer#}
-{#                    Informatie</a>#}
-{#            </div>#}
-{#        {% else %}#}
-{#            <p>Helaas er zijn op het moment geen trainingen.</p>#}
-{#        {% endfor %}#}
+        {#        {% for lesson in lessons %}#}
+        {#            <div class="col-sm-1 mb-4">#}
+        {#                <img class="img-fluid" src="{{ asset('img/uploads/' ~ lesson.training.brochureFilename) }}" alt="">#}
+        {#            </div>#}
+        {#            <div class="col-sm-2 mb-5">#}
+        {#                <div class="row align-items-center" style="height: 50%">#}
+        {#                    <div class="col">#}
+        {#                        <h2>{{ lesson.training }}</h2>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="row align-items-center" style="font-size: 1.7rem; height: 50%">#}
+        {#                    <div class="col">#}
+        {#                        <p class="d-inline"> Om: {{ lesson.time ? lesson.time|date('H:i') : '' }}</p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <div class="col-sm-3 mb-5">#}
+        {#                <a class="btn btn-danger text-left" href="{{ path('app_nu_inschrijvingen', {'id': lesson.id}) }}">Meer#}
+        {#                    Informatie</a>#}
+        {#            </div>#}
+        {#        {% else %}#}
+        {#            <p>Helaas er zijn op het moment geen trainingen.</p>#}
+        {#        {% endfor %}#}
     </div>
     <div class="row">
         {% for lesson in lessons %}
-        <div class="col-sm-6">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Training</th>
-                    <th>Tijd</th>
-                    <th>Max-personen</th>
-                    <th>Inschrijven</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>{{ lesson.training }}</td>
-                    <td>{{ lesson.time ? lesson.time|date('H:i') : '' }}</td>
-                    <td>{{ lesson.maxpersons }}</td>
-                    {{ registrations.countMember(lesson.id) }}
-                    <td>
-                        <a class="btn btn-outline-success" href="{{ path('app_nu_inschrijvingen', {'id': lesson.id}) }}">Inschrijven</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        {% else %}
-            <p>Helaas er zijn op het moment geen trainingen.</p>
+            <div class="col-sm-6">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Training</th>
+                        <th>Tijd</th>
+                        <th>Max-personen</th>
+                        <th>Inschrijven</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ lesson.training }}</td>
+                        <td>{{ lesson.time ? lesson.time|date('H:i') : '' }}</td>
+                        <td>{{ lesson.registrations|length }}/{{ lesson.maxpersons }}</td>
+                        <td>
+                            {% if lesson.registrations|length < 10 %}
+                                <a class="btn btn-outline-success"
+                                   href="{{ path('app_nu_inschrijvingen', {'id': lesson.id}) }}">Inschrijven</a>
+                            {% elseif registration.user.id == app.user.id %}
+                                <p class="btn btn-danger">Vol</p>
+                            {% else %}
+                                {{ registrations }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

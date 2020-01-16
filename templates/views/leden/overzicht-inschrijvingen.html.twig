@@ -1,4 +1,4 @@
-{% extends 'views/member/h-i-f-component/h-i-f.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block main %}
     <br>
@@ -7,47 +7,23 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Datum</th>
+            <th>Training</th>
             <th>Tijd</th>
-            <th>Sport</th>
-            <th>Aantal ingeschreven deelnemers</th>
-            <th>Prijs (EUR)</th>
+            <th>Max-personen</th>
+            <th>prijs</th>
             <th>Uitschrijven</th>
         </tr>
         </thead>
         <tbody>
+        {% for registration in registrations %}
         <tr>
-            <td>22-04-2017</td>
-            <td>09:00</td>
-            <td>MMA</td>
-            <td>6</td>
-            <td>14</td>
-            <td>X</td>
+            <td>{{ registration.lesson.training.naam }}</td>
+            <td>{{ registration.lesson.time|date('H:i') }}</td>
+            <td>{{ registration.lesson.registrations|length }}/{{ registration.lesson.maxpersons }}</td>
+            <td>€{{ registration.payment }}</td>
+            <td>{{ include('lesson/_delete_form.html.twig') }}</td>
         </tr>
-        <tr>
-            <td>22-04-2017</td>
-            <td>09:00</td>
-            <td>MMA</td>
-            <td>6</td>
-            <td>14</td>
-            <td>X</td>
-        </tr>
-        <tr>
-            <td>22-04-2017</td>
-            <td>09:00</td>
-            <td>MMA</td>
-            <td>6</td>
-            <td>14</td>
-            <td>X</td>
-        </tr>
-        <tr>
-            <td>22-04-2017</td>
-            <td>09:00</td>
-            <td>MMA</td>
-            <td>6</td>
-            <td>14</td>
-            <td>X</td>
-        </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}

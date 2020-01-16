@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Registration;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -18,22 +19,13 @@ class RegistrationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Registration::class);
     }
+//    public function checkRegistration($user, $les){
+//        $em = $this->getEntityManager();
+//        $query = $em->createQuery("SELECT registration FROM App:Registration registration WHERE registration.user =:userId AND registration.lesson =:lessonId");
+//        $query->execute(['userId' => $user, 'lessonId' => $les]);
+//        return $query->getResult();
+//    }
 
-    public function countMember($lesson)
-    {
-        // automatically knows to select Products
-        // the "p" is an alias you'll use in the rest of the query
-        $qb = $this->createQueryBuilder('reg')
-            ->where('reg.user = :lesson')
-            ->setParameter('lesson', $lesson);
-
-        $query = $qb->getQuery();
-
-        return $query->execute();
-
-        // to get just one result:
-        // $product = $query->setMaxResults(1)->getOneOrNullResult();
-    }
 
     // /**
     //  * @return Registration[] Returns an array of Registration objects
