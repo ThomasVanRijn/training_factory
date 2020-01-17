@@ -67,11 +67,11 @@ class UserController extends AbstractController
     /**
      * @Route("/inschrijving/verwijderen{id}", name="uitschrijven", methods={"DELETE"})
      */
-    public function uitschrijvenLesson(Request $request, RegistrationRepository $RegistrationRepository): Response
+    public function uitschrijven(Request $request, Registration $Registration): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $Registration->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
+            $entityManager->remove($Registration);
             $entityManager->flush();
         }
 

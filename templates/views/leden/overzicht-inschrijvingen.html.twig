@@ -21,7 +21,7 @@
             <td>{{ registration.lesson.time|date('H:i') }}</td>
             <td>{{ registration.lesson.registrations|length }}/{{ registration.lesson.maxpersons }}</td>
             <td>€{{ registration.payment }}</td>
-            <td>{{ include('lesson/_delete_form.html.twig') }}</td>
+            <td>{{ include('views/leden/_delete_form.html.twig') }}</td>
         </tr>
         {% endfor %}
         </tbody>

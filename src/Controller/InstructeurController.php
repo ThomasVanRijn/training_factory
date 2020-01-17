@@ -32,7 +32,7 @@ class InstructeurController extends AbstractController
             $entityManager->persist($lesson);
             $entityManager->flush();
 
-            return $this->redirectToRoute('lesson_index');
+            return $this->redirectToRoute('lesson_overzicht');
         }
 
         return $this->render('lesson/new.html.twig', [
@@ -93,6 +93,6 @@ class InstructeurController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('lesson_index');
+        return $this->redirectToRoute('lesson_overzicht');
     }
 }

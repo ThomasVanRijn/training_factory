@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/views/leden/_delete_form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InstructeurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InstructeurController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RegistrationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RegistrationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/leden/inschrijven.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/leden/inschrijven.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/leden/overzicht-inschrijvingen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/leden/overzicht-inschrijvingen.html.twig" afterDir="false" />
     </list>
@@ -150,23 +150,23 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\leden" />
+      <recent name="C:\xampp\htdocs\training_factory\src\Entity" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\src\Controller" />
+      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoeker" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\training_factory\templates\views\bezoeker" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoekers" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\pages" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\training_factory\src\Entity" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\src\Controller" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoeker" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\member" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -199,6 +199,8 @@
       <workItem from="1578903101621" duration="2963000" />
       <workItem from="1578906124023" duration="101000" />
       <workItem from="1578911794308" duration="6140000" />
+      <workItem from="1579249775701" duration="411000" />
+      <workItem from="1579260038556" duration="1402000" />
     </task>
     <task id="LOCAL-00001" summary="bezig met lessen">
       <created>1578655841190</created>
@@ -249,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579094788038</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="inschrijvn werkt">
+      <created>1579183476227</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1579183476227</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +285,7 @@
     <MESSAGE value="bezig met inschrijven lessen" />
     <MESSAGE value="Alles netjes gezet" />
     <MESSAGE value="inschrijven werkt nu alleen nog kijken of er genoeg plek is" />
-    <option name="LAST_COMMIT_MESSAGE" value="inschrijven werkt nu alleen nog kijken of er genoeg plek is" />
+    <MESSAGE value="inschrijvn werkt" />
+    <option name="LAST_COMMIT_MESSAGE" value="inschrijvn werkt" />
   </component>
 </project>
