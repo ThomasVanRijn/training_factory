@@ -65,7 +65,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/inschrijving/verwijderen{id}", name="uitschrijven", methods={"DELETE"})
+     * @Route("/inschrijving/verwijderen{id}", name="app_uitschrijven", methods={"DELETE"})
      */
     public function uitschrijven(Request $request, Registration $Registration): Response
     {
@@ -75,7 +75,7 @@ class UserController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('inschrijvingen_overzicht');
+        return $this->redirectToRoute('user_lessen_overzicht');
     }
 
     /**
