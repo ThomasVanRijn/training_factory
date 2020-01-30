@@ -3,19 +3,48 @@
 namespace App\Controller;
 
 use App\Entity\Lesson;
+use App\Entity\Registration;
 use App\Entity\User;
 use App\Form\LessonType;
+use App\Form\UserType;
 use App\Repository\LessonRepository;
+use App\Repository\RegistrationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/instructeur")
  */
 class InstructeurController extends AbstractController
 {
+    /**
+     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     */
+    public function editInstructor(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
+    {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('user/edit.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+    //LESSON CRUD
+
     /**
      * @Route("/lesson/plannen", name="lesson_plannen", methods={"GET","POST"})
      */
@@ -35,7 +64,7 @@ class InstructeurController extends AbstractController
             return $this->redirectToRoute('lesson_overzicht');
         }
 
-        return $this->render('lesson/new.html.twig', [
+        return $this->render('views/instructeur/new.html.twig', [
             'lesson' => $lesson,
             'form' => $form->createView(),
         ]);
@@ -46,20 +75,32 @@ class InstructeurController extends AbstractController
      */
     public function index(LessonRepository $lessonRepository): Response
     {
-        return $this->render('lesson/index.html.twig', [
+        return $this->render('views/instructeur/index.html.twig', [
             'lessons' => $lessonRepository->findAll(),
         ]);
     }
 
-
     /**
      * @Route("/overzicht/{id}", name="lesson_show", methods={"GET"})
      */
-    public function show(Lesson $lesson): Response
+    public function show(Lesson $lesson, RegistrationRepository $registrationRepository): Response
     {
-        return $this->render('lesson/show.html.twig', [
+        return $this->render('views/instructeur/show.html.twig', [
             'lesson' => $lesson,
+            'registrations' => $registrationRepository->findAll(),
         ]);
+    }
+
+    /**
+     * @Route("/lesson/betaal/{id}", name="user_betalen", methods={"BETAAL"})
+     */
+    public function betaalt(Request $request, Registration $registration): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $registration->setPayment(true);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('lesson_show', ['id' => $registration->getLesson()->getId()]);
     }
 
     /**
@@ -73,10 +114,10 @@ class InstructeurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('lesson_index');
+            return $this->redirectToRoute('lesson_overzicht');
         }
 
-        return $this->render('lesson/edit.html.twig', [
+        return $this->render('views/instructeur/edit.html.twig', [
             'lesson' => $lesson,
             'form' => $form->createView(),
         ]);

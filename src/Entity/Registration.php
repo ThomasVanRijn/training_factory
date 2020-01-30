@@ -17,7 +17,7 @@ class Registration
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $payment;
 

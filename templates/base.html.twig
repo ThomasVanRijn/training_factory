@@ -93,6 +93,11 @@
                            href="/instructeur/lesson/overzicht" {% if app.request.get('_route') == 'lesson_overzicht' %} style="font-weight: bold" {% endif %}>
                             lessen beheer</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger"
+                           href="/instructeur/{{ app.user.id }}/edit" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                            Gegevens lid wijzigen</a>
+                    </li>
                 {% elseif is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link text-danger"
@@ -111,7 +116,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="/user/{{ app.user.id }}/edit" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/user/{{ app.user.id }}/edit" {% if app.request.get('_route') == 'user_edit' %} style="font-weight: bold" {% endif %}>
                             Gegevens lid wijzigen</a>
                     </li>
                 {% else %}

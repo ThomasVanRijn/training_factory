@@ -21,21 +21,19 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Image</th>
+{#                <th>Image</th>#}
                 <th>Id</th>
                 <th>Time</th>
                 <th>Date</th>
                 <th>Location</th>
                 <th>Max_persons</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             {% for lesson in lessons %}
                 {% if app.user.id == lesson.instructeur.id %}
                     <tr>
-                        <td>
-                            <img class="img-fluid" src="{{ asset('img/uploads/' ~ lesson.training.brochureFilename) }}"
-                                 style="max-height: 200px; max-width: 250px">
                         <td>{{ lesson.id }}</td>
                         <td>{{ lesson.time ? lesson.time|date('H:i') : '' }}</td>
                         <td>{{ lesson.date ? lesson.date|date('Y-m-d') : '' }}</td>
@@ -46,7 +44,7 @@
                                href="{{ path('lesson_show', {'id': lesson.id}) }}">show</a>
                             <a class="btn btn-outline-warning"
                                href="{{ path('lesson_edit', {'id': lesson.id}) }}">edit</a>
-                            {{ include('lesson/_delete_form.html.twig') }}
+                            {{ include('views/instructeur/_delete_form.html.twig') }}
                         </td>
                     </tr>
                 {% elseif is_granted("ROLE_USER") %}

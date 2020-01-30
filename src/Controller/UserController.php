@@ -47,7 +47,7 @@ class UserController extends AbstractController
         $reg = new Registration();
         $reg->setLesson($les);
         $reg->setUser($user);
-        $reg->setpayment(50);
+        $reg->setpayment(false);
 
         $em->persist($reg);
         $em->flush();

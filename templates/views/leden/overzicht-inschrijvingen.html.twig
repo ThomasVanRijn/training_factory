@@ -16,13 +16,17 @@
         </thead>
         <tbody>
         {% for registration in registrations %}
-        <tr>
-            <td>{{ registration.lesson.training.naam }}</td>
-            <td>{{ registration.lesson.time|date('H:i') }}</td>
-            <td>{{ registration.lesson.registrations|length }}/{{ registration.lesson.maxpersons }}</td>
-            <td>€{{ registration.payment }}</td>
-            <td>{{ include('views/leden/_delete_form.html.twig') }}</td>
-        </tr>
+            {% if registration.user.id == app.user.id %}
+                <tr>
+                    <td>{{ registration.lesson.training.naam }}</td>
+                    <td>{{ registration.lesson.time|date('H:i') }}</td>
+                    <td>{{ registration.lesson.registrations|length }}/{{ registration.lesson.maxpersons }}</td>
+                    <td>€{{ registration.payment }}</td>
+                    <td>{{ include('views/leden/_delete_form.html.twig') }}</td>
+                </tr>
+            {% else %}
+                <td><p>Je bent nog nergens ingeschreven</p></td>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>

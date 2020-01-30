@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lesson{% endblock %}
+
+{% block main %}
+    <h1>Lesson</h1>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ lesson.id }}</td>
+        </tr>
+        <tr>
+            <th>Time</th>
+            <td>{{ lesson.time|date('H:i') }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ lesson.date|date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>{{ lesson.location }}</td>
+        </tr>
+        <tr>
+            <th>Max_persons</th>
+            <td>{{ lesson.maxPersons }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h1>Inschrijvingen</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Payment</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for registration in registrations %}
+            {% if registration.lesson.id == lesson.id %}
+                <tr>
+                    <td>{{ registration.user.firstname }} {{ registration.user.lastname }}</td>
+                    <td>
+                        {% if registration.payment == false %}
+                            <form class="d-inline" method="post"
+                                  action="{{ path('user_betalen', {'id': registration.id}) }}"
+                                  onsubmit="return confirm('Weet je zeker dat de klant heeft betaald?');">
+                                <input type="hidden" name="_method" value="BETAAL">
+                                <button class="btn btn-outline-warning d-inline">Betalen</button>
+                            </form>
+                        {% else %}
+                            <p class="btn btn-outline-success">Betaald</p>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('lesson_overzicht') }}">back to list</a>
+
+    <a class="btn btn-outline-warning" href="{{ path('lesson_edit', {'id': lesson.id}) }}">edit</a>
+
+    {{ include('views/instructeur/_delete_form.html.twig') }}
+{% endblock %}
