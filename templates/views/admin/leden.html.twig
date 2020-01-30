@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Tussenvoegsel</th>
+            <th>Achternaam</th>
+            <th>Geboortedatum</th>
+            <th>Geslacht</th>
+            <th>Email</th>
+            <th>Uitschakelen</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            {% if user.roles|first == 'ROLE_USER' %}
+                <tr>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.preprovision }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.dateofbirth|date('j-n-Y') }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

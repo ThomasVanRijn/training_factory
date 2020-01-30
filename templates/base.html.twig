@@ -64,12 +64,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="#" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/admin/instructeur/lijst" {% if app.request.get('_route') == 'admin_instructeur' %} style="font-weight: bold" {% endif %}>
                             Instructeurs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger"
-                           href="/admin/user" {% if app.request.get('_route') == '' %} style="font-weight: bold" {% endif %}>
+                           href="/admin/leden/lijst" {% if app.request.get('_route') == 'admin_leden' %} style="font-weight: bold" {% endif %}>
                             Leden</a>
                     </li>
                     <li class="nav-item">

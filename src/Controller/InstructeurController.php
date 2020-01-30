@@ -21,7 +21,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class InstructeurController extends AbstractController
 {
     /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="instructeur_edit", methods={"GET","POST"})
      */
     public function editInstructor(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {

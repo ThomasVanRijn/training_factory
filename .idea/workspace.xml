@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="inschrijvingen werken">
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200129113408.php" afterDir="false" />
+    <list default="true" id="10fbc937-33ed-4805-9c76-087a0ab629ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/views/admin/instructeurs.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/views/admin/leden.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/InstructeurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InstructeurController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/adminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lesson/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/instructeur/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lesson/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/instructeur/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lesson/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/instructeur/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lesson/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/instructeur/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lesson/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/instructeur/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lesson/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/instructeur/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/leden/overzicht-inschrijvingen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/leden/overzicht-inschrijvingen.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +31,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -162,7 +158,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/views/admin" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
@@ -174,11 +170,11 @@
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\training_factory\templates\views\admin" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\leden" />
       <recent name="C:\xampp\htdocs\training_factory\src\Entity" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views" />
       <recent name="C:\xampp\htdocs\Symfony\training_factory\src\Controller" />
-      <recent name="C:\xampp\htdocs\Symfony\training_factory\templates\views\bezoeker" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -203,7 +199,7 @@
       <workItem from="1579260038556" duration="2026000" />
       <workItem from="1580124496334" duration="6125000" />
       <workItem from="1580283206778" duration="854000" />
-      <workItem from="1580288972387" duration="11557000" />
+      <workItem from="1580288972387" duration="14308000" />
     </task>
     <task id="LOCAL-00001" summary="bezig met lessen">
       <created>1578655841190</created>
@@ -268,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579261670014</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="inschrijvingen werken">
+      <created>1580382120120</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1580382120120</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,17 +308,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580299138183" />
-    <state x="585" y="105" key="CommitChangelistDialog2" timestamp="1580131644536">
+    <state x="585" y="105" key="CommitChangelistDialog2" timestamp="1580382118868">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="105" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580131644536" />
+    <state x="585" y="105" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580382118868" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1580382123206">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580382123206" />
     <state x="661" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1580124547538">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="661" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580124547538" />
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580382099219">
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580384883824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580382099219" />
+    <state x="769" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580384883824" />
   </component>
 </project>

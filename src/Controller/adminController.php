@@ -16,11 +16,33 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/admin", name="")
+ * @Route("/admin", name="admin_")
  */
 class adminController extends AbstractController
 {
+    /**
+     * @Route("/leden/lijst", name="leden", methods={"GET"})
+     */
+    public function ledenLijst(UserRepository $userRepository): Response
+    {
+        return $this->render('views/admin/leden.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/instructeur/lijst", name="instructeur", methods={"GET"})
+     */
+    public function instructeursLijst(UserRepository $userRepository): Response
+    {
+        return $this->render('views/admin/instructeurs.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
+
+
 //    USER CRUD
+
     /**
      * @Route("/gegevens-wijzigen", name="gegevens_wijzigen", methods={"GET"})
      */
@@ -93,7 +115,7 @@ class adminController extends AbstractController
      */
     public function userDelete(Request $request, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
@@ -104,6 +126,7 @@ class adminController extends AbstractController
 
 
 //    TRAINING CRUD
+
     /**
      * @Route("/training/overzicht", name="training_index", methods={"GET"})
      */
