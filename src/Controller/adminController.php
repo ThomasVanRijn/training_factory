@@ -6,6 +6,8 @@ use App\Entity\training;
 use App\Entity\User;
 use App\Form\Training1Type;
 use App\Form\UserType;
+use App\Repository\LessonRepository;
+use App\Repository\RegistrationRepository;
 use App\Repository\TrainingRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,23 +22,48 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  */
 class adminController extends AbstractController
 {
+    // LEDEN
     /**
      * @Route("/leden/lijst", name="leden", methods={"GET"})
      */
     public function ledenLijst(UserRepository $userRepository): Response
     {
-        return $this->render('views/admin/leden.html.twig', [
+        return $this->render('views/admin/leden/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
 
     /**
+     * @Route("/leden/show/{id}", name="leden_show", methods={"GET"})
+     */
+    public function userShow(User $user, RegistrationRepository $registrationRepository): Response
+    {
+        return $this->render('views/admin/leden/show.html.twig', [
+            'user' => $user,
+            'registrations' => $registrationRepository->findAll(),
+        ]);
+    }
+
+
+    //INSTRUCTEURS
+    /**
      * @Route("/instructeur/lijst", name="instructeur", methods={"GET"})
      */
     public function instructeursLijst(UserRepository $userRepository): Response
     {
-        return $this->render('views/admin/instructeurs.html.twig', [
+        return $this->render('views/admin/instructeur/index.html.twig', [
             'users' => $userRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/instructeur/show/{id}", name="instructeur_show", methods={"GET"})
+     */
+    public function instructeursShow(User $user, LessonRepository $lessonRepository): Response
+    {
+        return $this->render('views/admin/instructeur/show.html.twig', [
+            'user' => $user,
+            'lessons' => $lessonRepository->findAll(),
         ]);
     }
 
@@ -75,16 +102,6 @@ class adminController extends AbstractController
         return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
-     */
-    public function userShow(User $user): Response
-    {
-        return $this->render('user/show.html.twig', [
-            'user' => $user,
         ]);
     }
 

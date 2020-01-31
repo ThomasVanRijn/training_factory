@@ -34,7 +34,7 @@ class training
     private $duration;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=10, scale=2)
      */
     private $costs;
 
@@ -52,9 +52,6 @@ class training
     {
         $this->lessons = new ArrayCollection();
     }
-
-
-
 
 
     public function getId(): ?int
