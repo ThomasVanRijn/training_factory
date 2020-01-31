@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
+    <h1>Dit zijn alle leden</h1>
     <table class="table">
         <thead>
         <tr>
@@ -10,7 +11,7 @@
             <th>Geboortedatum</th>
             <th>Geslacht</th>
             <th>Email</th>
-            <th>Uitschakelen</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,18 @@
                     <td>{{ user.email }}</td>
                     <td>
                         <a class="btn btn-outline-success" href="{{ path('admin_leden_show', {'id': user.id}) }}">show</a>
+
+                        {% if user.disabled == false %}
+                            <form class="d-inline" method="post" action="{{ path('admin_user_disable', {'id': user.id}) }}" onsubmit="return confirm('Weet je zeker dat je de klant wilt uitzetten?');">
+                                <input type="hidden" name="_method" value="DISABLE">
+                                <button class="btn btn-outline-danger d-inline">Uitzetten</button>
+                            </form>
+                        {% else %}
+                            <form class="d-inline" method="post" action="{{ path('admin_user_enable', {'id': user.id}) }}" onsubmit="return confirm('Weet je zeker dat je de klant wilt aanzetten?');">
+                                <input type="hidden" name="_method" value="ENABLE">
+                                <button class="btn btn-outline-success d-inline">Aanzetten</button>
+                            </form>
+                        {% endif %}
                     </td>
                 </tr>
             {% endif %}

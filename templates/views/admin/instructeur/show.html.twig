@@ -2,7 +2,8 @@
 
 {% block title %}User{% endblock %}
 
-{% block body %}
+{% block main %}
+    <br>
     <div class="container">
         <h1>User</h1>
 
@@ -69,6 +70,18 @@
             {#                <th>Roles</th>#}
             {#                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>#}
             {#            </tr>#}
+            <tr>
+                <th>Omzet</th>
+                <td>
+                    {% set omzet = 0.0 %}
+                    {% for reg in registrations %}
+                        {% if reg.lesson.instructeur.id == user.id and reg.payment == true %}
+                            {% set omzet = omzet + reg.lesson.training.costs %}
+                        {% endif %}
+                    {% endfor %}
+                    <p>&euro;{{ omzet }}</p>
+                </td>
+            </tr>
             </tbody>
         </table>
         <br>

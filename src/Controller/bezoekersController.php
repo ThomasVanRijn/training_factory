@@ -39,6 +39,7 @@ class bezoekersController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $encoded = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($encoded);
+            $user->setDisabled(false);
             $entityManager->persist($user);
             $entityManager->flush();
 

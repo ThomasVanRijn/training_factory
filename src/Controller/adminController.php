@@ -23,6 +23,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class adminController extends AbstractController
 {
     // LEDEN
+
     /**
      * @Route("/leden/lijst", name="leden", methods={"GET"})
      */
@@ -44,10 +45,35 @@ class adminController extends AbstractController
         ]);
     }
 
-
-    //INSTRUCTEURS
+    //Disable
     /**
-     * @Route("/instructeur/lijst", name="instructeur", methods={"GET"})
+     * @Route("/user/{id}/disable", name = "user_disable", methods = {"DISABLE"})
+     */
+    public
+    function userDisable(user $user): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user->setDisabled(true);
+        $entityManager->flush();
+        return $this->redirectToRoute('admin_leden');
+    }
+
+    /**
+     * @Route("/user/{id}/enable", name="user_enable", methods={"ENABLE"})
+     */
+    public function userEnable(user $user): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user->setDisabled(false);
+        $entityManager->flush();
+        return $this->redirectToRoute('admin_leden');
+    }
+
+
+    // INSTRUCTEURS
+
+    /**
+     * @Route("/instructeur/lijst", name="instructeur_lijst", methods={"GET"})
      */
     public function instructeursLijst(UserRepository $userRepository): Response
     {
@@ -59,16 +85,81 @@ class adminController extends AbstractController
     /**
      * @Route("/instructeur/show/{id}", name="instructeur_show", methods={"GET"})
      */
-    public function instructeursShow(User $user, LessonRepository $lessonRepository): Response
+    public function instructeursShow(User $user, LessonRepository $lessonRepository, RegistrationRepository $registrationRepository): Response
     {
         return $this->render('views/admin/instructeur/show.html.twig', [
             'user' => $user,
             'lessons' => $lessonRepository->findAll(),
+            'registrations' => $registrationRepository->findAll(),
         ]);
     }
 
+    /**
+     * @Route("/instructeur/delete/{id}", name="instructeur_delete", methods={"DELETE"})
+     */
+    public function instructeurDelete(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
 
-//    USER CRUD
+        return $this->redirectToRoute('admin_instructeur_lijst');
+    }
+
+    /**
+     * @Route("/instructeur/new", name="instructeur_new", methods={"GET","POST"})
+     */
+    public function new(Request $request, UserPasswordEncoderInterface $encoder): Response
+    {
+        $user = new user();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($encoded);
+            $user->setRoles(['ROLE_INSTRUCTEUR']);
+            $user->setDisabled(false);
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('views/admin/instructeur/new.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    // DISABLE
+    /**
+     * @Route("/instructeur/{id}/disable", name="instructeur_disable", methods={"DISABLE"})
+     */
+    public function instructeurDisable(user $user): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user->setDisabled(true);
+        $entityManager->flush();
+        return $this->redirectToRoute('admin_instructeur_lijst');
+    }
+
+    /**
+     * @Route("/instructeur/{id}/enable", name="instructeur_enable", methods={"ENABLE"})
+     */
+    public function instructeurEnable(user $user): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user->setDisabled(false);
+        $entityManager->flush();
+        return $this->redirectToRoute('admin_instructeur_lijst');
+    }
+
+
+    // USER CRUD
 
     /**
      * @Route("/gegevens-wijzigen", name="gegevens_wijzigen", methods={"GET"})
@@ -225,7 +316,7 @@ class adminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('training_index');
+            return $this->redirectToRoute('admin_training_index');
         }
 
         return $this->render('training/edit.html.twig', [

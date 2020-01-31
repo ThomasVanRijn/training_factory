@@ -1,7 +1,4 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn btn-outline-warning d-inline">{{ button_label|default('Aanmaken') }}</button>
-    {% if is_granted("ROLE_ADMIN") %}
-        <a class="btn btn-outline-success d-inline" href="{{ path('user_index') }}">back to list</a>
-    {% endif %}
+    <button class="btn btn-outline-warning d-inline">{{ button_label|default('registreren') }}</button>
 {{ form_end(form) }}

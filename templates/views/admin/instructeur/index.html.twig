@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
+    <h1>Dit zijn alle instructeurs</h1>
     <table class="table">
         <thead>
         <tr>
@@ -10,6 +11,7 @@
             <th>Geboortedatum</th>
             <th>Geslacht</th>
             <th>Email</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -24,10 +26,24 @@
                     <td>{{ user.email }}</td>
                     <td>
                         <a class="btn btn-outline-success" href="{{ path('admin_instructeur_show', {'id': user.id}) }}">show</a>
+                        {{ include('/views/admin/instructeur/_delete_form.html.twig') }}
+
+                        {% if user.disabled == false %}
+                            <form class="d-inline" method="post" action="{{ path('admin_instructeur_disable', {'id': user.id}) }}" onsubmit="return confirm('Weet je zeker dat je de klant wilt uitzetten?');">
+                                <input type="hidden" name="_method" value="DISABLE">
+                                <button class="btn btn-outline-danger d-inline">Uitzetten</button>
+                            </form>
+                        {% else %}
+                            <form class="d-inline" method="post" action="{{ path('admin_instructeur_enable', {'id': user.id}) }}" onsubmit="return confirm('Weet je zeker dat je de klant wilt aanzetten?');">
+                                <input type="hidden" name="_method" value="ENABLE">
+                                <button class="btn btn-outline-success d-inline">Aanzetten</button>
+                            </form>
+                        {% endif %}
                     </td>
                 </tr>
             {% endif %}
         {% endfor %}
         </tbody>
     </table>
+    <a class="btn btn-outline-success" href="{{ path('admin_instructeur_new') }}">Aanmaken</a>
 {% endblock %}
